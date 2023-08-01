@@ -1,6 +1,6 @@
 # API Cadastro de clientes
 
-Este projeto é uma API Rest em ASP.NET CORE.
+Este projeto é uma API Rest em ASP.NET CORE
 
 ## Tecnologias utilizadas
 
@@ -10,4 +10,4 @@ Este projeto é uma API Rest em ASP.NET CORE.
 
   ## Funcionalidades
 
-  * Cadastro, listagem, atualização e remoção de clientes
+* Cadastro, listagem, atualização e remoção de clientes
