@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CadastroClientesAPI.Controllers
 {
-    [Route("api/cadastro-clientes")]
+    //[Route("api/clientes")]
     public class CadastroClientesController : ControllerBase
     {
         private readonly ClienteDbContext _context;
@@ -15,8 +15,9 @@ namespace CadastroClientesAPI.Controllers
             _context = context;
         }
 
-        //GET
+        //GET All
         [HttpGet]
+        [Route("api/clientes")]
         public IActionResult GetAll()
         { 
             var clientes = _context.Clientes.Where(d => !d.IsDeletado).ToList();
@@ -26,7 +27,8 @@ namespace CadastroClientesAPI.Controllers
         }
 
         //GET By ID
-        [HttpGet("{id}")]
+        [HttpGet]
+        [Route("api/clientes/{id}")]
         public IActionResult GetById(Guid id) 
         {
             var clientes = _context.Clientes.SingleOrDefault(d => d.Id == id);
@@ -40,6 +42,7 @@ namespace CadastroClientesAPI.Controllers
 
         //POST
         [HttpPost]
+        [Route("api/clientes")]
         public IActionResult Post(Clientes clientes) 
         {
             _context.Clientes.Add(clientes);
@@ -49,7 +52,7 @@ namespace CadastroClientesAPI.Controllers
 
 
         //UPDATE
-        [HttpPut("{id}")]
+        [HttpPut("api/clientes/{id}")]
         public IActionResult Update(Guid id,Clientes cliente)
         {
             var clientes = _context.Clientes.SingleOrDefault(d => d.Id == id);
@@ -66,7 +69,7 @@ namespace CadastroClientesAPI.Controllers
         }
 
         //DELETE
-        [HttpDelete("{id}")]
+        [HttpDelete("api/clientes/{id}")]
         public IActionResult Delete(Guid id)
         {
             var clientes = _context.Clientes.SingleOrDefault(d => d.Id == id);
